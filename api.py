@@ -9,11 +9,11 @@ with open('lr_model.pkl', 'rb') as f:
 
 app = Flask(__name__)
 CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+# app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 @app.route('/predict-average-price', methods=['POST'])
-@cross_origin()
+# @cross_origin()
 def predict_average_price():
     """
     API for predicting the average price of avocados
