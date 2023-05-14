@@ -9,6 +9,7 @@ with open('lr_model.pkl', 'rb') as f:
 
 app = Flask(__name__)
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 @app.route('/predict-average-price', methods=['POST'])
