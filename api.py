@@ -3,7 +3,6 @@ import pickle
 import pandas as pd
 from flask_cors import CORS
 
-
 # Load the saved model from the pickle file
 with open('lr_model.pkl', 'rb') as f:
     lr = pickle.load(f)
@@ -39,7 +38,11 @@ def predict_average_price():
     prediction = lr.predict(input_df)
 
     # Return the predicted average price in JSON format
-    return jsonify({'predicted_average_price': round(prediction[0], 2)})
+    response = jsonify({'predicted_average_price': round(prediction[0], 2)})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods', 'POST')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+    return response
 
 
 if __name__ == '__main__':
