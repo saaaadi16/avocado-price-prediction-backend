@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import pickle
 import pandas as pd
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 # Load the saved model from the pickle file
 with open('lr_model.pkl', 'rb') as f:
@@ -12,6 +12,7 @@ CORS(app)
 
 
 @app.route('/predict-average-price', methods=['POST'])
+@cross_origin()
 def predict_average_price():
     """
     API for predicting the average price of avocados
