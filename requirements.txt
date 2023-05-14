@@ -1,5 +1,5 @@
 scikit-learn
-Flask-Cors==3.0.10
+flask-cors
 flask
 pandas
 gunicorn
