@@ -1,0 +1,6 @@
+web: gunicorn api:app
+scikit-learn
+flask-cors
+flask
+pandas
+gunicorn
